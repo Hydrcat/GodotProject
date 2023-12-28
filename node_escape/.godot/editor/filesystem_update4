@@ -1,0 +1,5 @@
+res://nodes/game_node.tscn
+res://nodes/game_node_theme.tres
+res://scenes/game_scene.tscn
+res://scenes/game_over_scene.tscn
+res://autoloads/game.tscn

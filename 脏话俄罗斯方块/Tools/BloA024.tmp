@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bag6fole2ro65"]
+
+[ext_resource type="Script" path="res://Tools/BlocksEditor.gd" id="1_3134d"]
+[ext_resource type="Script" path="res://Resource/BlockSets.gd" id="2_k1gb3"]
+[ext_resource type="TileSet" uid="uid://b2wtc21fn2384" path="res://Resource/actorTileSet.tres" id="2_wv7ih"]
+
+[sub_resource type="Resource" id="Resource_x3flt"]
+script = ExtResource("2_k1gb3")
+states = {}
+
+[node name="BlocksEditor" type="Node2D"]
+script = ExtResource("1_3134d")
+RoateState = 2
+blockset = SubResource("Resource_x3flt")
+color = null
+isSaved = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_wv7ih")
+format = 2
+layer_0/name = "backGround"
+layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0)
+layer_1/name = "record"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+
+[connection signal="changed" from="TileMap" to="." method="_on_tile_map_changed"]

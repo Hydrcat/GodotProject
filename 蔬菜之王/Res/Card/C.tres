@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardRes" load_steps=3 format=3 uid="uid://chnh7mw7grf2y"]
+
+[ext_resource type="Texture2D" uid="uid://bdbmsivn6jxlj" path="res://CardRes/Icons/structure_house.svg" id="1_bdujx"]
+[ext_resource type="Script" path="res://Res/card_res.gd" id="1_ve7nf"]
+
+[resource]
+script = ExtResource("1_ve7nf")
+card_type = "C"
+image = ExtResource("1_bdujx")
+color = Color(0.894118, 0.184314, 0.117647, 1)

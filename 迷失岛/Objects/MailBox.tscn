@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5yn4g31db0o3"]
+
+[ext_resource type="Script" path="res://Objects/MailBox.gd" id="1_mfkih"]
+[ext_resource type="Texture2D" uid="uid://du0dmqpqrr1l3" path="res://游戏素材/场景素材/H4/mailBox_close.png" id="2_bkde5"]
+[ext_resource type="Resource" uid="uid://bmo8sm7nl60u" path="res://Res/key.tres" id="2_g08mj"]
+[ext_resource type="Script" path="res://Objects/Interatable.gd" id="3_n7h8s"]
+[ext_resource type="Texture2D" uid="uid://dtlttufpl8qjy" path="res://游戏素材/场景素材/H4/mailBox_open.png" id="4_dt4bx"]
+[ext_resource type="Script" path="res://Objects/SceneItem.gd" id="5_75tht"]
+[ext_resource type="Resource" uid="uid://bsdftp215kcjk" path="res://Res/mail.tres" id="6_s2s0i"]
+[ext_resource type="Texture2D" uid="uid://cyeq076v20jhe" path="res://游戏素材/场景素材/H4/mail_piece.png" id="7_wu0me"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2if7g"]
+size = Vector2(362, 658)
+
+[node name="MailBox" type="Node2D" node_paths=PackedStringArray("defaultNode", "switchNode")]
+script = ExtResource("1_mfkih")
+key = ExtResource("2_g08mj")
+defaultNode = NodePath("close")
+switchNode = NodePath("open")
+flag = "used_key"
+
+[node name="close" type="Sprite2D" parent="."]
+position = Vector2(-6, 3)
+texture = ExtResource("2_bkde5")
+
+[node name="Interactable" type="Area2D" parent="close"]
+script = ExtResource("3_n7h8s")
+access_item = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="close/Interactable"]
+position = Vector2(-17, -6)
+shape = SubResource("RectangleShape2D_2if7g")
+
+[node name="open" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-51, 3)
+texture = ExtResource("4_dt4bx")
+
+[node name="SceneItem" type="Area2D" parent="open"]
+position = Vector2(-40, -168)
+script = ExtResource("5_75tht")
+item = ExtResource("6_s2s0i")
+texture = ExtResource("7_wu0me")
+
+[connection signal="interact" from="close/Interactable" to="." method="_on_interactable_interact"]

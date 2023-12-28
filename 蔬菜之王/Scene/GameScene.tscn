@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyprptflsbp71"]
+
+[ext_resource type="PackedScene" uid="uid://ckkcj8fp82jtb" path="res://Scene/field.tscn" id="1_qik0v"]
+[ext_resource type="Script" path="res://Script/CardFactory.gd" id="2_witrw"]
+[ext_resource type="Resource" uid="uid://bm2g8u2ca4m6r" path="res://Res/Card/A.tres" id="3_b6w67"]
+[ext_resource type="Resource" uid="uid://bkk2fv771sfad" path="res://Res/Card/B.tres" id="4_mhjef"]
+[ext_resource type="Resource" uid="uid://chnh7mw7grf2y" path="res://Res/Card/C.tres" id="5_qj0ir"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="Field" parent="." instance=ExtResource("1_qik0v")]
+
+[node name="CardFactory" type="Node2D" parent="."]
+position = Vector2(378, 32)
+script = ExtResource("2_witrw")
+card_ress = Array[Resource("res://Res/card_res.gd")]([ExtResource("3_b6w67"), ExtResource("4_mhjef"), ExtResource("5_qj0ir")])
+metadata/_edit_group_ = true
+
+[node name="0" type="Marker2D" parent="CardFactory"]
+
+[node name="1" type="Marker2D" parent="CardFactory"]
+position = Vector2(0, 64)
+
+[node name="2" type="Marker2D" parent="CardFactory"]
+position = Vector2(0, 128)
+
+[node name="3" type="Marker2D" parent="CardFactory"]
+position = Vector2(0, 192)
+
+[node name="4" type="Marker2D" parent="CardFactory"]
+position = Vector2(0, 256)

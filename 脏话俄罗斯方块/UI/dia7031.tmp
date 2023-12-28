@@ -1,0 +1,127 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdp22c78b4kh3"]
+
+[ext_resource type="Theme" uid="uid://biw6cpyqsewb8" path="res://Resource/LabelTheme.tres" id="1_go0cr"]
+[ext_resource type="Script" path="res://GameScene/MessageController.gd" id="2_id5ff"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m67c1"]
+bg_color = Color(0.960784, 0.960784, 0.960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rw0y"]
+bg_color = Color(0.960784, 0.960784, 0.960784, 1)
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0.780392, 0.780392, 0.780392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21xg2"]
+bg_color = Color(0.960784, 0.960784, 0.960784, 1)
+border_width_top = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utf8f"]
+bg_color = Color(0.960784, 0.960784, 0.960784, 1)
+
+[node name="Dialog" type="PanelContainer"]
+offset_right = 720.0
+offset_bottom = 640.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_m67c1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Header" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4rw0y")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Header"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+
+[node name="Label" type="Label" parent="VBoxContainer/Header/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_go0cr")
+theme_override_font_sizes/font_size = 20
+text = "你最讨厌的人之一"
+
+[node name="MessageController" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+script = ExtResource("2_id5ff")
+
+[node name="Timer" type="Timer" parent="VBoxContainer/MessageController"]
+wait_time = 5.0
+autostart = true
+
+[node name="Messages" type="VBoxContainer" parent="VBoxContainer/MessageController"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 17
+alignment = 1
+
+[node name="Reply" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_21xg2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Reply"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/Reply/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/background_color = Color(0.960784, 0.960784, 0.960784, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "如果说你是个傻逼我都觉得是侮辱了傻逼"
+placeholder_text = "输入中……
+"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+draw_control_chars = true
+draw_spaces = true
+caret_type = 1
+caret_mid_grapheme = false
+caret_multiple = false
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Reply/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_utf8f")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Reply/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="Button" type="Button" parent="VBoxContainer/Reply/VBoxContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.584314, 0.92549, 0.411765, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.85098, 0.380392, 1)
+theme_override_colors/font_hover_color = Color(0.537255, 0.85098, 0.380392, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "发送"
+
+[connection signal="timeout" from="VBoxContainer/MessageController/Timer" to="VBoxContainer/MessageController" method="_on_timer_timeout"]
+[connection signal="pressed" from="VBoxContainer/Reply/VBoxContainer/PanelContainer/MarginContainer/Button" to="VBoxContainer/MessageController" method="_on_button_pressed"]

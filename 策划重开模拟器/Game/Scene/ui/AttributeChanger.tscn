@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://dson38r5t8wt5"]
+
+[ext_resource type="Script" path="res://Game/Script/ui/AttributeChanger.gd" id="1_afu8r"]
+
+[node name="Atrr" type="HBoxContainer"]
+alignment = 1
+script = ExtResource("1_afu8r")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+
+[node name="AtrrChanger" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="mind" type="Button" parent="MarginContainer/AtrrChanger"]
+layout_mode = 2
+text = "-"
+
+[node name="num" type="Label" parent="MarginContainer/AtrrChanger"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="add" type="Button" parent="MarginContainer/AtrrChanger"]
+layout_mode = 2
+text = "-"
+
+[connection signal="pressed" from="MarginContainer/AtrrChanger/mind" to="." method="_on_mind_pressed"]
+[connection signal="pressed" from="MarginContainer/AtrrChanger/add" to="." method="_on_add_pressed"]

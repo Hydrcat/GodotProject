@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bebhkuctbmqly"]
+
+[ext_resource type="Texture2D" uid="uid://0p2shx8ovywy" path="res://CardRes/card_empty.png" id="1_7omnl"]
+[ext_resource type="Script" path="res://Script/Card.gd" id="1_y1ngf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6qd2"]
+size = Vector2(41, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpude"]
+
+[node name="Card" type="Area2D"]
+script = ExtResource("1_y1ngf")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_l6qd2")
+metadata/_edit_lock_ = true
+
+[node name="Card_back" type="Sprite2D" parent="."]
+texture = ExtResource("1_7omnl")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Card_back"]
+self_modulate = Color(1, 0.352941, 1, 1)
+position = Vector2(0, 10.8308)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("AtlasTexture_cpude")
+metadata/_edit_lock_ = true
+
+[node name="NumLabel" type="Label" parent="Card_back"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_top = -32.0
+offset_right = -12.0
+offset_bottom = -9.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "-1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="holder" type="Marker2D" parent="."]
+position = Vector2(10, 16)

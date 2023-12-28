@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://baut8mfl6634j"]
+
+[ext_resource type="PackedScene" uid="uid://v4owc81xsrcw" path="res://nodes/game_node.tscn" id="1_uxood"]
+[ext_resource type="Script" path="res://nodes/counter_node.gd" id="2_ngvwp"]
+
+[node name="CounterNode" instance=ExtResource("1_uxood")]
+script = ExtResource("2_ngvwp")
+
+[node name="MainPanel" parent="." index="0"]
+custom_minimum_size = Vector2(54, 54)
+
+[node name="MainLabel" parent="MainPanel/Margin/V" index="0"]
+text = "1"

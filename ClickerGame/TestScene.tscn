@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5nte26vq6k6r"]
+
+[ext_resource type="PackedScene" uid="uid://bgjixtj1cbk1y" path="res://Object/clicker.tscn" id="1_ctrf1"]
+[ext_resource type="PackedScene" uid="uid://dwjtc66m6xh2l" path="res://Object/FLoatText.tscn" id="2_4racf"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="Clicker" parent="." instance=ExtResource("1_ctrf1")]
+position = Vector2(142, 161)
+
+[node name="FLoatText" parent="." instance=ExtResource("2_4racf")]
+position = Vector2(430, 354)

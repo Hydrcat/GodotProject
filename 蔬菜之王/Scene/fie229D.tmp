@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckkcj8fp82jtb"]
+
+[ext_resource type="Texture2D" uid="uid://d2hdj3nsuphun" path="res://CardRes/card_back.png" id="1_07we7"]
+[ext_resource type="Script" path="res://Script/field.gd" id="2_xaanr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hwlm4"]
+resource_name = "slot"
+texture = ExtResource("1_07we7")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_dj2xu"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_hwlm4")
+
+[node name="Field" type="TileMap"]
+tile_set = SubResource("TileSet_dj2xu")
+collision_visibility_mode = 1
+format = 2
+layer_0/name = "slot"
+layer_0/modulate = Color(1, 0.537255, 1, 1)
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 65536, 0, 0, 65538, 0, 0, 65537, 0, 0, 131072, 0, 0, 131074, 0, 0, 131073, 0, 0)
+layer_1/name = "pic"
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("2_xaanr")
+card_size = Vector2i(60, 60)
+
+[node name="Cards" type="Node2D" parent="."]
+
+[node name="CardSlots" type="Node2D" parent="."]

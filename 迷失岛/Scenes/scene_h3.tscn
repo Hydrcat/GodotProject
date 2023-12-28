@@ -1,0 +1,28 @@
+[gd_scene load_steps=8 format=3 uid="uid://t0ddknvtupk"]
+
+[ext_resource type="PackedScene" uid="uid://jlreisjxlvck" path="res://Scenes/game_scene.tscn" id="1_xfbo0"]
+[ext_resource type="Texture2D" uid="uid://b4dk0lgro6pif" path="res://游戏素材/场景素材/H3/H3.png" id="2_rsw7c"]
+[ext_resource type="Script" path="res://Objects/Teleporter.gd" id="3_0i7ya"]
+[ext_resource type="Script" path="res://Objects/SceneItem.gd" id="4_7jah7"]
+[ext_resource type="Resource" uid="uid://bmo8sm7nl60u" path="res://Res/key.tres" id="5_ax1wq"]
+[ext_resource type="Texture2D" uid="uid://c2htbb5jtms01" path="res://游戏素材/场景素材/H2/key.png" id="6_iix2t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcg75"]
+size = Vector2(228, 295)
+
+[node name="BackGround" instance=ExtResource("1_xfbo0")]
+texture = ExtResource("2_rsw7c")
+
+[node name="Teleporter" type="Area2D" parent="." index="0"]
+script = ExtResource("3_0i7ya")
+target_path = "res://Scenes/scene_h2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter" index="0"]
+position = Vector2(1805, 922)
+shape = SubResource("RectangleShape2D_mcg75")
+
+[node name="SceneItem" type="Area2D" parent="." index="1"]
+position = Vector2(140, 962)
+script = ExtResource("4_7jah7")
+item = ExtResource("5_ax1wq")
+texture = ExtResource("6_iix2t")

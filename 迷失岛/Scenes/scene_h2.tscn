@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://be8684yns3xr0"]
+
+[ext_resource type="PackedScene" uid="uid://jlreisjxlvck" path="res://Scenes/game_scene.tscn" id="1_8tkn3"]
+[ext_resource type="Texture2D" uid="uid://b18gxb4vkccfx" path="res://游戏素材/场景素材/H2/H2.png" id="2_cyqfo"]
+[ext_resource type="Script" path="res://Scenes/scene_h2.gd" id="3_5l5ie"]
+[ext_resource type="Script" path="res://Objects/Teleporter.gd" id="3_gw2s2"]
+[ext_resource type="Script" path="res://Objects/Interatable.gd" id="5_ebya1"]
+[ext_resource type="PackedScene" uid="uid://dynb3mwnewch0" path="res://UI/dialog.tscn" id="6_0yb6k"]
+[ext_resource type="Script" path="res://Objects/FlagSwitcher.gd" id="10_lsmhi"]
+[ext_resource type="Texture2D" uid="uid://yqmfrk556iqj" path="res://游戏素材/场景素材/H2/door.png" id="11_bsoum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tsut"]
+size = Vector2(157.836, 100.219)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inueh"]
+size = Vector2(278.5, 502)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovgq5"]
+size = Vector2(249.5, 521.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym5fo"]
+size = Vector2(195.5, 351)
+
+[node name="BackGround" instance=ExtResource("1_8tkn3")]
+texture = ExtResource("2_cyqfo")
+script = ExtResource("3_5l5ie")
+
+[node name="Teleporter" type="Area2D" parent="." index="0"]
+script = ExtResource("3_gw2s2")
+target_path = "res://Scenes/scene_h1.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter" index="0"]
+position = Vector2(296, 209)
+shape = SubResource("RectangleShape2D_2tsut")
+
+[node name="Teleporter2" type="Area2D" parent="." index="1"]
+script = ExtResource("3_gw2s2")
+target_path = "res://Scenes/scene_h4.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter2" index="0"]
+position = Vector2(1771, 453)
+shape = SubResource("RectangleShape2D_inueh")
+
+[node name="Granny" type="Area2D" parent="." index="2"]
+script = ExtResource("5_ebya1")
+access_item = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Granny" index="0"]
+position = Vector2(571, 504)
+shape = SubResource("RectangleShape2D_ovgq5")
+
+[node name="Dialog" parent="Granny" index="1" instance=ExtResource("6_0yb6k")]
+offset_left = 624.0
+offset_top = 470.0
+offset_right = 624.0
+offset_bottom = 470.0
+
+[node name="FlagSwitcher" type="Node2D" parent="." index="3" node_paths=PackedStringArray("defaultNode", "switchNode")]
+script = ExtResource("10_lsmhi")
+defaultNode = NodePath("Teleporter4")
+switchNode = NodePath("Teleporter3")
+flag = "h2a_finished"
+
+[node name="Teleporter3" type="Area2D" parent="FlagSwitcher" index="0"]
+script = ExtResource("3_gw2s2")
+target_path = "res://Scenes/scene_h3.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlagSwitcher/Teleporter3" index="0"]
+position = Vector2(1000, 310)
+shape = SubResource("RectangleShape2D_ym5fo")
+
+[node name="Teleporter4" type="Area2D" parent="FlagSwitcher" index="1"]
+position = Vector2(969, 314)
+script = ExtResource("3_gw2s2")
+target_path = "res://Easygame/H2A.tscn"
+texture = ExtResource("11_bsoum")
+
+[connection signal="interact" from="Granny" to="." method="_on_granny_interact"]

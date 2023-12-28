@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgjixtj1cbk1y"]
+
+[ext_resource type="Script" path="res://Object/clicker.gd" id="1_0fd6a"]
+[ext_resource type="Texture2D" uid="uid://0owfvfpotgq6" path="res://icon.svg" id="1_5174y"]
+[ext_resource type="Resource" uid="uid://q3haqqrlsml7" path="res://Sound/Click.tres" id="2_12n5n"]
+[ext_resource type="PackedScene" uid="uid://06y2b4exrj2f" path="res://Object/click_effect.tscn" id="3_qfrex"]
+[ext_resource type="Script" path="res://Object/EffectHolder.gd" id="4_1w1y6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkgj2"]
+size = Vector2(125, 126)
+
+[node name="Clicker" type="Area2D"]
+script = ExtResource("1_0fd6a")
+sounds = ExtResource("2_12n5n")
+
+[node name="img" type="Sprite2D" parent="."]
+texture = ExtResource("1_5174y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_gkgj2")
+
+[node name="EffectHolder" type="Node2D" parent="."]
+script = ExtResource("4_1w1y6")
+effect = ExtResource("3_qfrex")

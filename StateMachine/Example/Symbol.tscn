@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbk22puw2s7ox"]
+
+[ext_resource type="Script" path="res://Example/Symbol.gd" id="1_umor3"]
+
+[node name="Symbol" type="Node2D"]
+script = ExtResource("1_umor3")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 25.0
+offset_bottom = 28.0
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+text = "%"
+horizontal_alignment = 1

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://caaawquiv25jg"]
+
+[ext_resource type="PackedScene" uid="uid://cyprptflsbp71" path="res://Scene/GameScene.tscn" id="1_vrsyh"]
+[ext_resource type="PackedScene" uid="uid://dl3q04k63h8qn" path="res://UI/HUD.tscn" id="2_2w1fy"]
+
+[node name="GameMain" type="Node2D"]
+
+[node name="GameScene" parent="." instance=ExtResource("1_vrsyh")]
+position = Vector2(0, 128)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("2_2w1fy")]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://jlreisjxlvck"]
+
+[ext_resource type="Texture2D" uid="uid://csk2x81ngbyif" path="res://游戏素材/场景素材/H1/H1.png" id="1_t6m6i"]
+[ext_resource type="Script" path="res://Scenes/game_scene.gd" id="2_nv0bp"]
+
+[node name="BackGround" type="Sprite2D"]
+texture = ExtResource("1_t6m6i")
+offset = Vector2(960, 540)
+script = ExtResource("2_nv0bp")
+metadata/_edit_lock_ = true

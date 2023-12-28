@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw01mi6w7667a"]
+
+[ext_resource type="PackedScene" uid="uid://v4owc81xsrcw" path="res://nodes/game_node.tscn" id="1_mgiyw"]
+[ext_resource type="Script" path="res://nodes/fingerprint_node.gd" id="2_tehhv"]
+
+[node name="FingerprintNode" instance=ExtResource("1_mgiyw")]
+script = ExtResource("2_tehhv")
+
+[node name="Indicators" type="HBoxContainer" parent="MainPanel/Margin/V" index="0"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainPanel/Margin/V/Indicators" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect2" type="ColorRect" parent="MainPanel/Margin/V/Indicators" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect3" type="ColorRect" parent="MainPanel/Margin/V/Indicators" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect4" type="ColorRect" parent="MainPanel/Margin/V/Indicators" index="3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect5" type="ColorRect" parent="MainPanel/Margin/V/Indicators" index="4"]
+layout_mode = 2
+size_flags_horizontal = 3

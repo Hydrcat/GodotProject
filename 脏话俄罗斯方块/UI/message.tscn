@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://ct7vx6gphx5s8"]
+
+[ext_resource type="Script" path="res://GameScene/message.gd" id="1_jd8od"]
+[ext_resource type="Texture2D" uid="uid://d3i5g80hub3r3" path="res://icon.svg" id="2_oki0o"]
+[ext_resource type="Theme" uid="uid://biw6cpyqsewb8" path="res://Resource/LabelTheme.tres" id="3_nnij0"]
+[ext_resource type="FontFile" uid="uid://cwgijme66soft" path="res://Resource/Font/SmileySans-Oblique.ttf" id="3_pdxc4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_er6xs"]
+diffuse_texture = ExtResource("2_oki0o")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ggvb"]
+bg_color = Color(0.584314, 0.92549, 0.411765, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w38a"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.687215, 0.687215, 0.687215, 1)
+border_blend = true
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[node name="Message" type="MarginContainer"]
+offset_right = 209.0
+offset_bottom = 48.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+script = ExtResource("1_jd8od")
+
+[node name="Others" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="OthersAtals" type="TextureRect" parent="Others"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("CanvasTexture_er6xs")
+expand_mode = 1
+
+[node name="OthersWord" type="PanelContainer" parent="Others"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ggvb")
+
+[node name="MarginContainer" type="MarginContainer" parent="Others/OthersWord"]
+layout_mode = 2
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 9
+
+[node name="Label" type="Label" parent="Others/OthersWord/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("3_nnij0")
+theme_override_fonts/font = ExtResource("3_pdxc4")
+theme_override_font_sizes/font_size = 16
+text = "我需要一双阿迪达斯
+"
+vertical_alignment = 1
+
+[node name="Me" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 2
+
+[node name="MeWord" type="PanelContainer" parent="Me"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8w38a")
+
+[node name="MarginContainer" type="MarginContainer" parent="Me/MeWord"]
+layout_mode = 2
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 9
+
+[node name="Label" type="Label" parent="Me/MeWord/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("3_nnij0")
+theme_override_fonts/font = ExtResource("3_pdxc4")
+theme_override_font_sizes/font_size = 16
+text = "你是傻逼吗？"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MeAtals" type="TextureRect" parent="Me"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("CanvasTexture_er6xs")
+expand_mode = 1

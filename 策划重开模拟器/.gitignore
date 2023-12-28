@@ -1,0 +1,4 @@
+# Godot 4+ specific ignores
+.godot/
+# Excel 临时文件
+~$*.xls*

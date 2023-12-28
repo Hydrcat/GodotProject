@@ -1,0 +1,394 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8e4htr8q0g6r"]
+
+[ext_resource type="PackedScene" uid="uid://qk20bd52vob4" path="res://Game/Scene/ui/SceneChangeBtn.tscn" id="1_00an0"]
+[ext_resource type="PackedScene" uid="uid://dp7842dywthhk" path="res://Game/Global/UIManager.tscn" id="1_y437c"]
+[ext_resource type="Script" path="res://Game/Script/ChangeSceneBtn.gd" id="3_bqeev"]
+[ext_resource type="Script" path="res://Game/Script/ui/Attrs.gd" id="4_i6hi6"]
+
+[node name="GameMain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UIManager" parent="." node_paths=PackedStringArray("defalut_layout") instance=ExtResource("1_y437c")]
+defalut_layout = NodePath("../Start")
+
+[node name="Start" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -150.5
+offset_right = 84.0
+offset_bottom = -115.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 32
+text = "策划重开模拟器"
+horizontal_alignment = 1
+
+[node name="Title2" type="Label" parent="Start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -80.5
+offset_right = 84.0
+offset_bottom = -61.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "这b游戏是1秒也做不下去了"
+horizontal_alignment = 1
+
+[node name="Button" parent="Start" node_paths=PackedStringArray("next_scene") instance=ExtResource("1_00an0")]
+layout_mode = 1
+offset_top = -15.5
+offset_bottom = 15.5
+next_scene = NodePath("../../Talent")
+
+[node name="Talent" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Talent"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Talent/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_bottom = 40
+
+[node name="Header" type="Label" parent="Talent/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "天赋选择"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="Talent/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Talent/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Talent/VBoxContainer/MarginContainer3/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Talent/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "测试用button1"
+
+[node name="Button2" type="Button" parent="Talent/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "测试用button1"
+
+[node name="Button3" type="Button" parent="Talent/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "测试用button1"
+
+[node name="Button4" type="Button" parent="Talent/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "测试用button1"
+
+[node name="Button5" type="Button" parent="Talent/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "测试用button1"
+
+[node name="Button6" type="Button" parent="Talent/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "测试用button1"
+
+[node name="Button7" type="Button" parent="Talent/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "测试用button1"
+
+[node name="Button8" type="Button" parent="Talent/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "测试用button1"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Talent/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Talent/VBoxContainer/MarginContainer2" node_paths=PackedStringArray("next_scene")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "选好了"
+script = ExtResource("3_bqeev")
+next_scene = NodePath("../../../../Attrs")
+
+[node name="Attrs" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_i6hi6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Attrs"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Attrs/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Attrs/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="Attrs/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "属性加点
+"
+horizontal_alignment = 1
+
+[node name="Header2" type="Label" parent="Attrs/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "剩余点数：10
+"
+horizontal_alignment = 1
+
+[node name="AtrrContainer" type="MarginContainer" parent="Attrs/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Attrs/VBoxContainer/AtrrContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Attrs/VBoxContainer/AtrrContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Attrs/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Attrs/VBoxContainer/MarginContainer2" node_paths=PackedStringArray("next_scene")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "选好了"
+script = ExtResource("3_bqeev")
+next_scene = NodePath("../../../../Event/EventScene")
+
+[node name="Event" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EventScene" type="ScrollContainer" parent="Event"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EventContainer" type="VBoxContainer" parent="Event/EventScene"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Event" type="HBoxContainer" parent="Event/EventScene/EventContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MonthLabel" type="Label" parent="Event/EventScene/EventContainer/Event"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "23年1月"
+horizontal_alignment = 1
+
+[node name="EventContent" type="Label" parent="Event/EventScene/EventContainer/Event"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "孩子，世人皆知宽门，你必须努力走进那窄门。因为那之中才有福音。
+"
+vertical_alignment = 1
+autowrap_mode = 1
+justification_flags = 0
+
+[node name="Event2" type="HBoxContainer" parent="Event/EventScene/EventContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MonthLabel" type="Label" parent="Event/EventScene/EventContainer/Event2"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "23年1月"
+horizontal_alignment = 1
+
+[node name="EventContent" type="Label" parent="Event/EventScene/EventContainer/Event2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "孩子，世人皆知宽门，你必须努力走进那窄门。因为那之中才有福音。
+"
+vertical_alignment = 1
+autowrap_mode = 1
+justification_flags = 0
+
+[node name="Event3" type="HBoxContainer" parent="Event/EventScene/EventContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MonthLabel" type="Label" parent="Event/EventScene/EventContainer/Event3"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "23年1月"
+horizontal_alignment = 1
+
+[node name="EventContent" type="Label" parent="Event/EventScene/EventContainer/Event3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "孩子，世人皆知宽门，你必须努力走进那窄门。因为那之中才有福音。
+"
+vertical_alignment = 1
+autowrap_mode = 1
+justification_flags = 0
+
+[node name="End" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="End"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="End/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="End/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="End/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "你的策划生涯结束了
+"
+horizontal_alignment = 1
+
+[node name="Header2" type="Label" parent="End/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "评价：猪狗不如
+"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="End/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="ScrollContainer" type="ScrollContainer" parent="End/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="End/VBoxContainer/MarginContainer3/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Atrr" type="HBoxContainer" parent="End/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="End/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer/Atrr"]
+layout_mode = 2
+text = "属性1"
+
+[node name="MarginContainer" type="MarginContainer" parent="End/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer/Atrr"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+
+[node name="AtrrChanger" type="HBoxContainer" parent="End/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer/Atrr/MarginContainer"]
+layout_mode = 2
+
+[node name="mind" type="Button" parent="End/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer/Atrr/MarginContainer/AtrrChanger"]
+layout_mode = 2
+text = "-"
+
+[node name="num" type="Label" parent="End/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer/Atrr/MarginContainer/AtrrChanger"]
+layout_mode = 2
+text = "999"
+
+[node name="add" type="Button" parent="End/VBoxContainer/MarginContainer3/ScrollContainer/VBoxContainer/Atrr/MarginContainer/AtrrChanger"]
+layout_mode = 2
+text = "-"
+
+[node name="MarginContainer2" type="MarginContainer" parent="End/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="End/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "选好了"

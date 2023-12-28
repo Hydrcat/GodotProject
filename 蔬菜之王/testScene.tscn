@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://dsts848y3mkwj"]
+
+[ext_resource type="PackedScene" uid="uid://lu2p4i24g108" path="res://Scene/CardSlot.tscn" id="2_me21r"]
+[ext_resource type="PackedScene" uid="uid://ckkcj8fp82jtb" path="res://Scene/field.tscn" id="3_atq34"]
+[ext_resource type="Script" path="res://Script/CardFactory.gd" id="4_5tnjn"]
+[ext_resource type="Script" path="res://CardTable.gd" id="4_vivt7"]
+[ext_resource type="Resource" uid="uid://bm2g8u2ca4m6r" path="res://Res/Card/A.tres" id="6_686e3"]
+[ext_resource type="Resource" uid="uid://bkk2fv771sfad" path="res://Res/Card/B.tres" id="7_cggl2"]
+[ext_resource type="Resource" uid="uid://chnh7mw7grf2y" path="res://Res/Card/C.tres" id="7_swp6i"]
+[ext_resource type="Texture2D" uid="uid://d2hdj3nsuphun" path="res://CardRes/card_back.png" id="9_l2j7f"]
+
+[node name="testScene" type="Node2D"]
+
+[node name="CardSlot" parent="." instance=ExtResource("2_me21r")]
+position = Vector2(556, 43)
+
+[node name="Field" parent="." instance=ExtResource("3_atq34")]
+layer_0/enabled = true
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 65536, 0, 0, 65538, 0, 0, 65537, 0, 0, 131072, 0, 0, 131074, 0, 0, 131073, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 5, 0, 0, 65541, 0, 0, 131077, 0, 0, 262149, 0, 0, 196613, 0, 0)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(899, 60)
+script = ExtResource("4_vivt7")
+
+[node name="CardFactory" type="Node2D" parent="Node2D"]
+position = Vector2(4, -2)
+script = ExtResource("4_5tnjn")
+card_ress = Array[Resource("res://Res/card_res.gd")]([ExtResource("6_686e3"), ExtResource("7_cggl2"), ExtResource("7_swp6i")])
+
+[node name="Table" type="VBoxContainer" parent="Node2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Node2D/Table"]
+layout_mode = 2
+texture = ExtResource("9_l2j7f")
+
+[node name="TextureRect2" type="TextureRect" parent="Node2D/Table"]
+layout_mode = 2
+texture = ExtResource("9_l2j7f")
+
+[node name="TextureRect3" type="TextureRect" parent="Node2D/Table"]
+layout_mode = 2
+texture = ExtResource("9_l2j7f")
+
+[node name="TextureRect4" type="TextureRect" parent="Node2D/Table"]
+layout_mode = 2
+texture = ExtResource("9_l2j7f")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 983.0
+offset_top = 88.0
+offset_right = 1069.0
+offset_bottom = 109.0
+
+[connection signal="pressed" from="Button" to="Node2D" method="_on_button_pressed"]

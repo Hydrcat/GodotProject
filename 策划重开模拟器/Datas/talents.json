@@ -1,0 +1,127 @@
+[
+  {
+	"id": 10000,
+	"name": "带资进组",
+	"desc": "你必定能够入行",
+	"rarity": 3,
+	"extra_points": 0,
+	"condition": [],
+	"effect": [],
+	"replacement": [],
+	"exclude": [
+	  10000
+	]
+  },
+  {
+	"id": 10001,
+	"name": "家境贫寒",
+	"desc": "家境-1，其他属性+1",
+	"rarity": 2,
+	"extra_points": 0,
+	"condition": [],
+	"effect": [],
+	"replacement": [],
+	"exclude": [
+	  10001
+	]
+  },
+  {
+	"id": 10002,
+	"name": "机智",
+	"desc": "你很机制",
+	"rarity": 2,
+	"extra_points": 0,
+	"condition": [],
+	"effect": [],
+	"replacement": [],
+	"exclude": []
+  },
+  {
+	"id": 10003,
+	"name": "愚笨",
+	"desc": "你很愚笨",
+	"rarity": 2,
+	"extra_points": 0,
+	"condition": [],
+	"effect": [],
+	"replacement": [],
+	"exclude": []
+  },
+  {
+	"id": 10004,
+	"name": "配表达人",
+	"desc": "你很会配表",
+	"rarity": 2,
+	"extra_points": 0,
+	"condition": [],
+	"effect": [],
+	"replacement": [],
+	"exclude": []
+  },
+  {
+	"id": 10005,
+	"name": "设计天才",
+	"desc": "你很会设计",
+	"rarity": 2,
+	"extra_points": 0,
+	"condition": [],
+	"effect": [],
+	"replacement": [],
+	"exclude": []
+  },
+  {
+	"id": 10006,
+	"name": "爱玩游戏",
+	"desc": "你天天打游戏",
+	"rarity": 2,
+	"extra_points": 0,
+	"condition": [],
+	"effect": [],
+	"replacement": [],
+	"exclude": []
+  },
+  {
+	"id": 10007,
+	"name": "关掉战士",
+	"desc": "关掉一定要关掉",
+	"rarity": 2,
+	"extra_points": 0,
+	"condition": [],
+	"effect": [],
+	"replacement": [],
+	"exclude": []
+  },
+  {
+	"id": 10008,
+	"name": "关系很硬",
+	"desc": "关系很硬",
+	"rarity": 2,
+	"extra_points": 0,
+	"condition": [],
+	"effect": [],
+	"replacement": [],
+	"exclude": []
+  },
+  {
+	"id": 10009,
+	"name": "狗运很好",
+	"desc": "会获得贵人扶持",
+	"rarity": 2,
+	"extra_points": 0,
+	"condition": [],
+	"effect": [],
+	"replacement": [],
+	"exclude": []
+  },
+  {
+	"id": 10010,
+	"name": "家里有人",
+	"desc": "你进入体制的概率提升",
+	"rarity": 3,
+	"extra_points": 0,
+	"condition": [],
+	"effect": [],
+	"replacement": [],
+	"exclude": []
+  }
+]

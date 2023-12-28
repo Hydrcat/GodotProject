@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bn507pv51p1m5"]
+
+[ext_resource type="Texture2D" uid="uid://c0qc3lt0gv0o0" path="res://Cat_move.png" id="1_b0kom"]
+[ext_resource type="Script" path="res://actor.gd" id="1_nxvik"]
+[ext_resource type="Texture2D" uid="uid://ca0wfsm050tbk" path="res://land.png" id="2_oqjhv"]
+
+[sub_resource type="Animation" id="Animation_a5d5t"]
+resource_name = "move"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0tcxm"]
+_data = {
+"move": SubResource("Animation_a5d5t")
+}
+
+[node name="actor" type="Node2D"]
+script = ExtResource("1_nxvik")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_0tcxm")
+}
+
+[node name="Land" type="Sprite2D" parent="."]
+position = Vector2(0, 301)
+texture = ExtResource("2_oqjhv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b0kom")
+hframes = 2
+metadata/_edit_lock_ = true

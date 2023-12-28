@@ -1,0 +1,44 @@
+[gd_scene load_steps=11 format=3 uid="uid://4qvujqfebtj3"]
+
+[ext_resource type="PackedScene" uid="uid://jlreisjxlvck" path="res://Scenes/game_scene.tscn" id="1_itwtx"]
+[ext_resource type="Texture2D" uid="uid://beyg8b7ucftj" path="res://游戏素材/场景素材/H2A/游戏素材/roomsignBG.png" id="2_4rrkc"]
+[ext_resource type="Script" path="res://Easygame/H2A.gd" id="3_pjjk7"]
+[ext_resource type="Script" path="res://Objects/Teleporter.gd" id="3_u1osv"]
+[ext_resource type="Script" path="res://Easygame/Borad.gd" id="4_7dtig"]
+[ext_resource type="Resource" uid="uid://b4n4elch4100h" path="res://Easygame/easy.tres" id="5_lua1l"]
+[ext_resource type="Script" path="res://Objects/Interatable.gd" id="7_xgn0b"]
+[ext_resource type="Texture2D" uid="uid://c301dqfi36lip" path="res://游戏素材/场景素材/H2A/游戏素材/gearbg.png" id="8_s6xcm"]
+[ext_resource type="Texture2D" uid="uid://dy8ck3wmcmgh4" path="res://游戏素材/场景素材/H2A/游戏素材/gear.png" id="9_qlc4r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7bh87"]
+radius = 89.1403
+
+[node name="BackGround" instance=ExtResource("1_itwtx")]
+texture = ExtResource("2_4rrkc")
+script = ExtResource("3_pjjk7")
+BGM_Overrides = "res://游戏素材/音乐/OpenRoad.mp3"
+
+[node name="Teleporter" type="Area2D" parent="." index="0"]
+script = ExtResource("3_u1osv")
+target_path = "res://Scenes/scene_h2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter" index="0"]
+position = Vector2(169, 115)
+shape = SubResource("CircleShape2D_7bh87")
+
+[node name="Borad" type="Node2D" parent="." index="1"]
+position = Vector2(920, 551)
+script = ExtResource("4_7dtig")
+_radius = 350.0
+_config = ExtResource("5_lua1l")
+
+[node name="Interactable" type="Area2D" parent="." index="2"]
+position = Vector2(1662, 201)
+script = ExtResource("7_xgn0b")
+texture = ExtResource("8_s6xcm")
+
+[node name="Gear" type="Sprite2D" parent="Interactable" index="2"]
+texture = ExtResource("9_qlc4r")
+metadata/_edit_lock_ = true
+
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]

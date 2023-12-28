@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardRes" load_steps=3 format=3 uid="uid://bkk2fv771sfad"]
+
+[ext_resource type="Script" path="res://Res/card_res.gd" id="1_ho8td"]
+[ext_resource type="Texture2D" uid="uid://d38dybxfr2lfn" path="res://CardRes/Icons/book_open.svg" id="1_tndit"]
+
+[resource]
+script = ExtResource("1_ho8td")
+card_type = "B"
+image = ExtResource("1_tndit")
+color = Color(0, 0.862745, 0, 1)

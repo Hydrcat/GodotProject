@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://coth60358hqqx"]
+
+[ext_resource type="Script" path="res://Globals/HUD.gd" id="1_at0df"]
+[ext_resource type="PackedScene" uid="uid://cjmmw5grxaerw" path="res://UI/Inventory.tscn" id="1_v4lj6"]
+[ext_resource type="Texture2D" uid="uid://ciisuoyoaeyfw" path="res://游戏素材/UI/menu.png" id="2_y3tfg"]
+
+[node name="HUD" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_at0df")
+
+[node name="Inventory" parent="." instance=ExtResource("1_v4lj6")]
+
+[node name="Menu" type="TextureButton" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -119.0
+offset_top = 10.0
+offset_right = -14.0
+offset_bottom = 116.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_y3tfg")
+
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

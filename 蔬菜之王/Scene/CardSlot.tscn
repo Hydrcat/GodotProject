@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://lu2p4i24g108"]
+
+[ext_resource type="Script" path="res://Script/CardSlot.gd" id="1_fbk8q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5b5nt"]
+size = Vector2(0, 0)
+
+[node name="CardSlot" type="Area2D"]
+script = ExtResource("1_fbk8q")
+_size = Vector2(60, 60)
+_is_show_rect = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5b5nt")
+metadata/_edit_lock_ = true

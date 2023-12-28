@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://dynb3mwnewch0"]
+
+[ext_resource type="FontFile" uid="uid://cqldsy3mtjxj5" path="res://Font/defaut.tres" id="1_eolsh"]
+[ext_resource type="Script" path="res://UI/dialog.gd" id="1_sqqp3"]
+[ext_resource type="Texture2D" uid="uid://ti1x7hwaooi4" path="res://游戏素材/UI/对话框点9图.9.png" id="2_wd0g4"]
+[ext_resource type="Texture2D" uid="uid://dwha7gee56mff" path="res://游戏素材/UI/对话框把手.png" id="3_mgcop"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3kosm"]
+texture = ExtResource("2_wd0g4")
+texture_margin_left = 38.0
+texture_margin_top = 30.0
+texture_margin_right = 38.0
+texture_margin_bottom = 30.0
+
+[node name="Dialog" type="Control"]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sqqp3")
+
+[node name="Content" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = -105.0
+offset_right = 581.0
+offset_bottom = -22.0
+grow_vertical = 0
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.199219, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_eolsh")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_3kosm")
+text = "曾经有一个机会，但是我并没有抓住。"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Handle" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -59.0
+offset_right = 61.0
+grow_vertical = 0
+texture = ExtResource("3_mgcop")
+flip_h = true
+
+[connection signal="gui_input" from="Content" to="." method="_on_content_gui_input"]

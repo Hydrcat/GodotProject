@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://fih8w3lcqxia"]
+
+[ext_resource type="Script" path="res://scenes/game_scene.gd" id="1_34i3k"]
+[ext_resource type="PackedScene" uid="uid://ciohw51aqotfp" path="res://objects/node_description.tscn" id="2_b4gcn"]
+[ext_resource type="Script" path="res://objects/game_node_manager.gd" id="2_ohwyc"]
+[ext_resource type="PackedScene" uid="uid://b37d7j6ec6ep8" path="res://objects/rain.tscn" id="4_6tfv4"]
+
+[node name="GameScene" type="Node"]
+script = ExtResource("1_34i3k")
+
+[node name="GameNodeManager" type="Node2D" parent="." node_paths=PackedStringArray("description_label")]
+unique_name_in_owner = true
+script = ExtResource("2_ohwyc")
+description_label = NodePath("../Foreground/NodeDescription")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Foreground" type="CanvasLayer" parent="."]
+
+[node name="NodeDescription" parent="Foreground" instance=ExtResource("2_b4gcn")]
+offset_bottom = 58.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.196078)
+theme_override_constants/outline_size = 8
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Rain" parent="Background" instance=ExtResource("4_6tfv4")]
+unique_name_in_owner = true

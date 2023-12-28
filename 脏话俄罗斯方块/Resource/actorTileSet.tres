@@ -1,0 +1,48 @@
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://b2wtc21fn2384"]
+
+[ext_resource type="Texture2D" uid="uid://bnlgk0xmal0s" path="res://Resource/sheets.png" id="1_ftmw2"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_0kxlh"]
+tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_ox5sk"]
+tile_data = PackedInt32Array(0, 65536, 0, 65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_1wni5"]
+tile_data = PackedInt32Array(65536, 131072, 0, 65537, 131072, 0, 2, 131072, 0, 65538, 131072, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_3mrty"]
+tile_data = PackedInt32Array(0, 196608, 0, 65536, 196608, 0, 1, 196608, 0, 65537, 196608, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_qrgao"]
+tile_data = PackedInt32Array(65536, 262144, 0, 1, 262144, 0, 65537, 262144, 0, 2, 262144, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_jp64n"]
+tile_data = PackedInt32Array(65536, 327680, 0, 1, 327680, 0, 65537, 327680, 0, 65538, 327680, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_v3trr"]
+tile_data = PackedInt32Array(0, 262144, 0, 1, 262144, 0, 65537, 262144, 0, 65538, 262144, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2bkcr"]
+texture = ExtResource("1_ftmw2")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+5:0/0/custom_data_0 = true
+
+[resource]
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "isWall"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_2bkcr")
+pattern_0 = SubResource("TileMapPattern_0kxlh")
+pattern_1 = SubResource("TileMapPattern_ox5sk")
+pattern_2 = SubResource("TileMapPattern_1wni5")
+pattern_3 = SubResource("TileMapPattern_3mrty")
+pattern_4 = SubResource("TileMapPattern_qrgao")
+pattern_5 = SubResource("TileMapPattern_jp64n")
+pattern_6 = SubResource("TileMapPattern_v3trr")

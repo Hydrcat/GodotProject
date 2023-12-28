@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw813tqjyivv7"]
+
+[ext_resource type="PackedScene" uid="uid://v4owc81xsrcw" path="res://nodes/game_node.tscn" id="1_omddr"]
+[ext_resource type="Texture2D" uid="uid://clm8gm4hj1sc6" path="res://assets/square.svg" id="2_ifa13"]
+
+[sub_resource type="Curve" id="Curve_8woe8"]
+_data = [Vector2(0.120635, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.49414, 0.0, 0, 0]
+point_count = 2
+
+[node name="FingerNode" instance=ExtResource("1_omddr")]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="0"]
+z_index = -1
+lifetime = 4.0
+randomness = 0.5
+lifetime_randomness = 0.5
+texture = ExtResource("2_ifa13")
+emission_shape = 3
+emission_rect_extents = Vector2(32, 1)
+spread = 5.0
+angular_velocity_max = 15.0
+angle_max = 45.0
+scale_amount_min = 0.01
+scale_amount_max = 0.04
+scale_amount_curve = SubResource("Curve_8woe8")
+color = Color(1, 0, 0, 1)

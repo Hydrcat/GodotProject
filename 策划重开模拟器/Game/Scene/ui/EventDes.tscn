@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhv1ax1qilkrj"]
+
+[ext_resource type="Script" path="res://Game/Script/ui/EventDes.gd" id="1_1ahux"]
+
+[node name="Event" type="HBoxContainer"]
+alignment = 1
+script = ExtResource("1_1ahux")
+
+[node name="MonthLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+text = "23年1月"
+horizontal_alignment = 1
+
+[node name="EventContent" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "孩子，世人皆知宽门，你必须努力走进那窄门。因为那之中才有福音。
+"
+vertical_alignment = 1
+autowrap_mode = 1
+justification_flags = 0

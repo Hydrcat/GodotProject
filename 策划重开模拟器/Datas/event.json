@@ -1,0 +1,110 @@
+[
+  {
+	"id": 1000,
+	"event": "你退出了游戏行业，在脉脉上愤怒留下：这傻逼策划，再也不当了。",
+	"grade": 1,
+	"include": "",
+	"exclude": "",
+	"isNotRandom": true,
+	"branch_override": [],
+	"effects": [],
+	"branch": [],
+	"postEvent": ""
+  },
+  {
+	"id": 1001,
+	"event": "在21岁这年，你因为大学成绩很垃圾，只能成为一个游戏策划",
+	"grade": 1,
+	"include": "",
+	"exclude": "",
+	"isNotRandom": false,
+	"branch_override": [],
+	"effects": [],
+	"branch": [],
+	"postEvent": ""
+  },
+  {
+	"id": 1002,
+	"event": "在25岁这年，你因为土木行业高强度加班，终于不堪重负，花了2万块钱转行成为游戏策划",
+	"grade": 1,
+	"include": "",
+	"exclude": "",
+	"isNotRandom": false,
+	"branch_override": [],
+	"effects": [],
+	"branch": [],
+	"postEvent": ""
+  },
+  {
+	"id": 1003,
+	"event": "你对游戏行业充斥着幻想，决意在这个行业里做出点什么东西。",
+	"grade": 1,
+	"include": "",
+	"exclude": "",
+	"isNotRandom": false,
+	"branch_override": [],
+	"effects": [],
+	"branch": [],
+	"postEvent": ""
+  },
+  {
+	"id": 1004,
+	"event": "你喜欢玩元神，准备了50W，带资进组成为了游戏策划",
+	"grade": 3,
+	"include": "",
+	"exclude": "",
+	"isNotRandom": false,
+	"branch_override": [],
+	"effects": [],
+	"branch": [],
+	"postEvent": "制作人把你当成亲儿子，对你嘘寒问暖但从不让你干活"
+  },
+  {
+	"id": 1005,
+	"event": "因为经济不行，你被裁了",
+	"grade": 1,
+	"include": "",
+	"exclude": "",
+	"isNotRandom": false,
+	"branch_override": [],
+	"effects": [],
+	"branch": [],
+	"postEvent": ""
+  },
+  {
+	"id": 1006,
+	"event": "你表现良好，成为了主策",
+	"grade": 1,
+	"include": "",
+	"exclude": "",
+	"isNotRandom": false,
+	"branch_override": [],
+	"effects": [],
+	"branch": [],
+	"postEvent": ""
+  },
+  {
+	"id": 1007,
+	"event": "你表现良好，成为了制作人",
+	"grade": 1,
+	"include": "",
+	"exclude": "",
+	"isNotRandom": false,
+	"branch_override": [],
+	"effects": [],
+	"branch": [],
+	"postEvent": ""
+  },
+  {
+	"id": 1008,
+	"event": "公司倒闭了，你失业了",
+	"grade": 1,
+	"include": "",
+	"exclude": "",
+	"isNotRandom": false,
+	"branch_override": [],
+	"effects": [],
+	"branch": [],
+	"postEvent": ""
+  }
+]

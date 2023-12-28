@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardRes" load_steps=3 format=3 uid="uid://bm2g8u2ca4m6r"]
+
+[ext_resource type="Texture2D" uid="uid://vwt0xesjl0ka" path="res://CardRes/Icons/chess_king.svg" id="1_d0f7f"]
+[ext_resource type="Script" path="res://Res/card_res.gd" id="2_c3uj1"]
+
+[resource]
+script = ExtResource("2_c3uj1")
+card_type = "A"
+image = ExtResource("1_d0f7f")
+color = Color(0.729412, 0.552941, 0.776471, 1)

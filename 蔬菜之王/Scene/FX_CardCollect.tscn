@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkq8eqtlvefk6"]
+
+[ext_resource type="Script" path="res://Script/FX_CardCollect.gd" id="1_pfrce"]
+
+[node name="FxCardCollect" type="Node2D"]
+script = ExtResource("1_pfrce")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b37d7j6ec6ep8"]
+
+[ext_resource type="Texture2D" uid="uid://h63k7s7bfu2o" path="res://assets/rain.svg" id="1_2mgv5"]
+[ext_resource type="Script" path="res://objects/rain.gd" id="2_inl0s"]
+
+[sub_resource type="Curve" id="Curve_rmohq"]
+_data = [Vector2(0, 0.218182), 0.0, 0.00923753, 0, 1]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_s85tt"]
+max_value = 2.0
+_data = [Vector2(0, 1.23636), 0.0, 0.0, 0, 1]
+point_count = 1
+
+[node name="Rain" type="CPUParticles2D"]
+position = Vector2(409, -89)
+rotation = 0.10472
+amount = 32
+lifetime = 1.5
+local_coords = true
+texture = ExtResource("1_2mgv5")
+emission_shape = 3
+emission_rect_extents = Vector2(400, 16)
+split_scale = true
+scale_curve_x = SubResource("Curve_rmohq")
+scale_curve_y = SubResource("Curve_s85tt")
+color = Color(0.239216, 0.239216, 0.239216, 1)
+script = ExtResource("2_inl0s")
