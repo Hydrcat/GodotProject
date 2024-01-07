@@ -23,8 +23,8 @@ GlobalExpression="*res://Game/Global/Expression.gd"
 
 [display]
 
-window/size/viewport_width=400
-window/size/viewport_height=650
+window/size/viewport_width=480
+window/size/viewport_height=800
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 

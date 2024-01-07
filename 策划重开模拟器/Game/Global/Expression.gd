@@ -5,7 +5,7 @@ extends Node
 ## 检索数组中是否包含对象
 ## 计算Effect
 
-var e := Expression.new()
+var expression := Expression.new()
 var variable_names := []:
 	get:
 		var tmp := []
@@ -64,11 +64,11 @@ func _preprocess(_expression:String,mode:String="condition")->String:
 func try_prase(_expression:String):
 	_expression = _preprocess(_expression)
 	
-	var error = e.parse(_expression,variable_names)
+	var error = expression.parse(_expression,variable_names)
 	if error != OK:
 		return null
 	
-	var result = e.execute(variable_value,self)
+	var result = expression.execute(variable_value,self)
 	return result
 
 #region 运算符
