@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b24dl76t3em3a"]
+
+[ext_resource type="Script" path="res://Global/Game.cs" id="1_3m3hp"]
+[ext_resource type="PackedScene" uid="uid://x3aeb0qxg5w3" path="res://clicker.tscn" id="1_5mp7q"]
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("clicker", "timer")]
+script = ExtResource("1_3m3hp")
+clicker = NodePath("Clicker")
+timer = NodePath("Timer")
+
+[node name="Clicker" parent="." instance=ExtResource("1_5mp7q")]
+unique_name_in_owner = true
+position = Vector2(248, 225)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
