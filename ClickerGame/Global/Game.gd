@@ -1,23 +1,45 @@
 extends Node
 
-var points : int = 0 # 生成的开发点数
-var cps :float = 0.0 # 每分钟生成的进度
-
-var RatePerClick :int = 1 #点击倍率
-var ExtraPerClick :int = 0 #每次交互额外获得
-
 signal clicked
-signal points_change
+signal fans_changed
+
+var fans : int = 0:
+	set(v):
+		if v!= fans:
+			fans_changed.emit()
+		fans = v
+
+# 二级属性
+var fans_adds_on_click :int = 1 
+var fans_adds_on_timeout :float = 0.0
+
+var _timer: Timer
+var _timer_fans_adds :float = 0.0
 
 func _enter_tree() -> void:
-    clicked.connect(on_clicked) 
+	clicked.connect(on_clicked)
+	_timer = Timer.new()
+	_timer.one_shot = false
+	_timer.wait_time = 1.0
+	add_child(_timer)
+	_timer.timeout.connect(on_fans_add_timeout)
+	_timer.start()
 
-# 点击的时候，进行增加
 func on_clicked() -> void:
-    ## 点数 = 鼠标点击 * 点击获取倍率 + 额外补正
-    points += RatePerClick + ExtraPerClick
+	fans += fans_adds_on_click
+	Utils.creat_float_text(str(fans_adds_on_click),
+			Clicker.instance,get_viewport().get_mouse_position())
 
-# 时间计时器
-func on_time_end() -> void:
-    pass
+#统计，如果达到整数级别则进行增加。
+func on_fans_add_timeout() -> void:
+	_timer_fans_adds += fans_adds_on_timeout
+	fans += floori(_timer_fans_adds)
+	fans_adds_on_timeout -= floori(_timer_fans_adds)
+
+func get_fans() -> int :
+	return fans
+
+func buy() -> void:
+
+	pass
 

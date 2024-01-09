@@ -1,21 +1,40 @@
 extends Area2D
 class_name Clicker
 
-var tween :Tween
 const T_SIZE ={
 	NORMAL = 1.0,
 	ENTER = 1.2,
 	CILICK = 1.4,
 }
+const SFX_CLICK :AudioStreamOggVorbis = preload("res://Asset/Audio/click.ogg")
 
-@export var sounds : SoundsGroup
+static var instance:Clicker
+
+signal clicked #点击时
+
 @onready var effect_holder = $EffectHolder
+@onready var visual = $Visual
+
+@export var rotate_speed:float = 0.0
+
+var tween :Tween
+
+func  _enter_tree() -> void:
+	if instance == null:
+		instance = self
+	else:
+		printerr("instance have muti!")
+
+func _ready() -> void:
+	Game.clicked.connect(on_interact)
+
+func _process(delta: float) -> void:
+	rotate(delta * rotate_speed)
 
 # 检测交互触发
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("interact"):
-		on_interact()
-	pass
+		Game.clicked.emit()
 	
 # 交互触发
 func on_interact()->void:
@@ -25,12 +44,8 @@ func on_interact()->void:
 	tween.tween_property(self,"scale",Vector2.ONE * T_SIZE.CILICK,0.2).from(Vector2.ONE *T_SIZE.ENTER)
 	tween.tween_property(self,"scale",Vector2.ONE * T_SIZE.ENTER,0.1)
 	
-	## 飘字
-	var pos := get_viewport().get_mouse_position()
-	Utils.creat_float_text("+1000",self,pos)
-	var sds := sounds.sounds
-	SoundManager.play_sound(sds.pick_random())
 	effect_holder.play_effect()
+	SoundManager.play_sound(SFX_CLICK)
 	
 # 鼠标进入
 func _mouse_enter() -> void:
