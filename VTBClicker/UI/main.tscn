@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkshb8gm5atwv"]
+
+[ext_resource type="Script" path="res://UI/UIMain.cs" id="1_mm6na"]
+
+[node name="Main" type="Control" node_paths=PackedStringArray("numberLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_mm6na")
+numberLabel = NodePath("FansContain/Label2")
+
+[node name="FansContain" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="FansContain"]
+layout_mode = 2
+text = "粉丝数量："
+
+[node name="Label2" type="Label" parent="FansContain"]
+layout_mode = 2
+text = "99999"

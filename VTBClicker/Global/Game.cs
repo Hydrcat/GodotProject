@@ -1,15 +1,28 @@
 using Godot;
-using System;
-using System.Security.Cryptography.X509Certificates;
 
 public partial class Game : Node
 {
 	[Export] Clicker clicker;
 	[Export] Timer timer;
+	public static Game Instance {get;private set;}
+
+	[Signal] public delegate void FansUpdatedEventHandler(int newFans);
+
+    public override void _EnterTree()
+    {
+       	if (Instance == null)
+		{
+			Instance = this;
+		}else{
+			GD.PrintErr("Game has two diff instance:"+Instance+","+this);
+		}
+    }
     public override void _Ready()
     {
         clicker.Clicked += OnClicked;
 		timer.Timeout += OnSecondTimerEnd;
+
+	
     }
     // 粉丝数量
     public int Fans {get;private set;}= 0;
@@ -23,7 +36,9 @@ public partial class Game : Node
 	private void OnClicked()
 	{
 		Fans += FansPerClick;
-		GD.Print(Fans);
+		// 调用ui，更新
+		EmitSignal(SignalName.FansUpdated,Fans);
+
 	}
 
 	private void OnSecondTimerEnd()
@@ -32,7 +47,6 @@ public partial class Game : Node
 		var add = Mathf.FloorToInt(fansToAdd);
 		Fans += add;
 		fansToAdd -= add;
-		GD.Print(Fans);
 	}
 
 	
