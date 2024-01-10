@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Object/clicker.gd" id="1_0fd6a"]
 [ext_resource type="Shader" path="res://Shader/maskShader.gdshader" id="2_7gcad"]
-[ext_resource type="Texture2D" uid="uid://b4nsmuorg0sfp" path="res://Asset/Clicker/pic.png" id="3_f82ax"]
-[ext_resource type="PackedScene" uid="uid://06y2b4exrj2f" path="res://Object/click_effect.tscn" id="3_qfrex"]
+[ext_resource type="Texture2D" uid="uid://b4nsmuorg0sfp" path="res://Asset/Texture/pic.png" id="3_f82ax"]
+[ext_resource type="PackedScene" uid="uid://06y2b4exrj2f" path="res://VFX/click_effect.tscn" id="3_qfrex"]
 [ext_resource type="Script" path="res://Object/EffectHolder.gd" id="4_1w1y6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukh4g"]
@@ -23,6 +23,10 @@ size = Vector2(155, 162)
 [node name="Clicker" type="Area2D"]
 script = ExtResource("1_0fd6a")
 
+[node name="EffectHolder" type="Node2D" parent="."]
+script = ExtResource("4_1w1y6")
+effect = ExtResource("3_qfrex")
+
 [node name="Visual" type="Node2D" parent="."]
 
 [node name="img" type="Sprite2D" parent="Visual"]
@@ -33,7 +37,3 @@ texture = ExtResource("3_f82ax")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 2)
 shape = SubResource("RectangleShape2D_gkgj2")
-
-[node name="EffectHolder" type="Node2D" parent="."]
-script = ExtResource("4_1w1y6")
-effect = ExtResource("3_qfrex")

@@ -3,6 +3,7 @@ extends Node
 signal clicked
 signal clicker_property_changed(p:Clicker_Property,_arg)
 
+# 一级属性
 var fans : int = 0:
 	set(v):
 		if v!= fans:
@@ -14,6 +15,7 @@ var fans_adds_on_click :int = 1
 var fans_adds_on_timeout :int = 0
 
 var _timer: Timer
+
 
 enum Clicker_Property{
 	FANS, # 粉丝
@@ -35,11 +37,10 @@ func on_clicked() -> void:
 	Utils.creat_float_text(str(fans_adds_on_click),
 			Clicker.instance,get_viewport().get_mouse_position())
 
-#统计，如果达到整数级别则进行增加。
 func on_fans_add_timeout() -> void:
 	fans += fans_adds_on_timeout
 
-## 帮助函数，获取各个属性
+# 帮助函数，获取各个属性
 func get_clicker_property(clicker_property:Clicker_Property) -> int:
 	match clicker_property:
 		Clicker_Property.FANS:
@@ -49,8 +50,3 @@ func get_clicker_property(clicker_property:Clicker_Property) -> int:
 		Clicker_Property.FANS_PER_SECOND:
 			return fans_adds_on_timeout
 	return -1
-
-func buy() -> void:
-
-	pass
-
