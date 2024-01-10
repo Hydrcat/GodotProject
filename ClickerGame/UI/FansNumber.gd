@@ -2,6 +2,8 @@ extends HBoxContainer
 
 @onready var num_label :Label= $NumLabel
 
+@export var label_name :String 
+
 func _ready() -> void:
 	Game.fans_changed.connect(on_fans_changed)
 

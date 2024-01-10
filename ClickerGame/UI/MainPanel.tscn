@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://eadepdqrl4pe"]
+[gd_scene load_steps=4 format=3 uid="uid://eadepdqrl4pe"]
 
-[ext_resource type="Script" path="res://UI/FansNumber.gd" id="1_wru3w"]
-[ext_resource type="LabelSettings" uid="uid://r3dgxa3ry7n2" path="res://fans_label.tres" id="2_sno7c"]
+[ext_resource type="PackedScene" uid="uid://3fo3glgr3ppe" path="res://UI/ReactLabel.tscn" id="1_8saj2"]
+[ext_resource type="Script" path="res://UI/ShopControl.gd" id="2_k2ppx"]
+[ext_resource type="Script" path="res://UI/ShopButton.gd" id="3_od154"]
 
 [node name="MainPanel" type="Control"]
 layout_mode = 3
@@ -12,23 +13,58 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="FansNumber" type="HBoxContainer" parent="."]
+[node name="FansLabel" parent="." instance=ExtResource("1_8saj2")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -15.5
+offset_right = 74.0
+offset_bottom = 15.5
+alignment = 1
+label_name = "粉丝数量"
+
+[node name="Panel" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -264.0
 grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_wru3w")
+grow_vertical = 0
 
-[node name="TextLabel" type="Label" parent="FansNumber"]
+[node name="MiddlePanel" type="VBoxContainer" parent="Panel"]
 layout_mode = 2
-text = "粉丝数量"
-label_settings = ExtResource("2_sno7c")
+size_flags_vertical = 3
 
-[node name="NumLabel" type="Label" parent="FansNumber"]
+[node name="Attribute" type="HBoxContainer" parent="Panel/MiddlePanel"]
 layout_mode = 2
-text = "XXXX"
-label_settings = ExtResource("2_sno7c")
+alignment = 1
+
+[node name="ReactLabel" parent="Panel/MiddlePanel/Attribute" instance=ExtResource("1_8saj2")]
+layout_mode = 2
+size_flags_horizontal = 2
+property_listen = 1
+label_name = "粉丝获取/Click"
+label_num = 1
+
+[node name="ReactLabel2" parent="Panel/MiddlePanel/Attribute" instance=ExtResource("1_8saj2")]
+layout_mode = 2
+size_flags_horizontal = 10
+property_listen = 2
+label_name = "粉丝获取/s"
+
+[node name="BottomPanel" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_k2ppx")
+
+[node name="Button" type="Button" parent="Panel/BottomPanel"]
+layout_mode = 2
+text = "消耗20粉丝，提纯结晶粉（每次点击获取粉丝数量+1）
+"
+script = ExtResource("3_od154")
+
+[node name="Button2" type="Button" parent="Panel/BottomPanel"]
+layout_mode = 2
+text = "消耗30粉丝，提纯黑粉（每秒增加粉丝数量+1）
+"
